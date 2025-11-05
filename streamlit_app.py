@@ -22,11 +22,12 @@ ingredients_list = st.multiselect(
     , my_dataframe
     , max_selections=5
 )
-import requests
+
 if ingredients_list:
     ingredients_string = ''
 
     for fruit_chosen in ingredients_list:
+        import requests
         ingredients_string += fruit_chosen + ''
         st.subheader(fruit_chosen + 'Nutrition Information')
         smoothiefroot_response = request.get("https://my.smoothiefroot.com/api/fruit/" + fruit_chosen)
